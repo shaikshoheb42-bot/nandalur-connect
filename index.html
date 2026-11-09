@@ -224,20 +224,87 @@ footer span {
   </div>
 </section>
 
+
 <section id="join">
-  <div class="join">
-    <h2>Own a Shop in Nandalur?</h2>
-    <p>Bring your business online and help local customers find you.</p>
-    <button onclick="alert('Shop registration coming soon!')">
-      Add Your Shop
-    </button>
+  <div class="section-title">
+    <h2>Register Your Shop</h2>
+    <p>Bring your Nandalur business online.</p>
   </div>
+
+  <form id="shopForm" class="join" style="max-width:600px;margin:auto;text-align:left">
+
+    <label>Shop Name</label>
+    <input name="shopName" type="text" placeholder="Enter shop name" required>
+
+    <label>Owner Name</label>
+    <input name="ownerName" type="text" placeholder="Enter owner name" required>
+
+    <label>Mobile Number</label>
+    <input name="mobile" type="tel" placeholder="Enter mobile number"
+      pattern="[0-9]{10}" maxlength="10" required>
+
+    <label>Shop Category</label>
+    <select name="category" required>
+      <option value="">Select category</option>
+      <option>Grocery</option>
+      <option>Clothing</option>
+      <option>Mobile Shop</option>
+      <option>Restaurant</option>
+      <option>Medical</option>
+      <option>Services</option>
+      <option>Other</option>
+    </select>
+
+    <label>Shop Address</label>
+    <textarea name="address" placeholder="Enter full shop address" required></textarea>
+
+    <label>Products / Services</label>
+    <textarea name="products" placeholder="What does your shop sell?"></textarea>
+
+    <label>Shop Photo</label>
+    <input name="photo" type="file" accept="image/*">
+
+    <p style="font-size:13px;margin-top:15px">
+      Your information will be reviewed before your shop is published.
+    </p>
+
+    <button type="submit" style="width:100%;margin-top:20px">
+      Submit Shop Details
+    </button>
+    <p id="formMessage" style="margin-top:15px"></p>
+  </form>
 </section>
+
+<style>
+#shopForm label {
+  display:block;
+  margin-top:15px;
+  font-weight:bold;
+  color:#102b4e;
+}
+#shopForm input,
+#shopForm select,
+#shopForm textarea {
+  width:100%;
+  padding:13px;
+  margin-top:7px;
+  border:1px solid #ccd6e2;
+  border-radius:8px;
+  background:white;
+  font-size:15px;
+}
+#shopForm textarea {
+  min-height:85px;
+  resize:vertical;
+}
+</style>
+
 
 <footer>
   <p>© 2026 <span>Nandalur Connect</span>. Built for our community.</p>
   <p style="margin-top:8px;">Your Village. Your Businesses.</p>
 </footer>
+
 
 <script>
 function searchShops() {
@@ -250,7 +317,21 @@ function searchShops() {
 
   alert("Shop search system will be connected soon!");
 }
+
+const shopForm = document.getElementById("shopForm");
+
+shopForm.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const message = document.getElementById("formMessage");
+
+  message.textContent =
+    "Registration form is working! Database connection is the next step.";
+
+  message.style.color = "#167a43";
+});
 </script>
+
 
 </body>
 </html>
